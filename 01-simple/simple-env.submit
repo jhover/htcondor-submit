@@ -1,0 +1,10 @@
+# submit description file
+dir = /home/jhover/test/test-condor/simple/
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+output = $(dir)/output/$(cluster).$(process).out
+error = $(dir)/output/$(cluster).$(process).err
+log = $(dir)/output/$(cluster).$(process).log
+universe       = vanilla
+executable     = /bin/env                                              
+Queue                                                                  

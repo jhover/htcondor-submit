@@ -1,0 +1,15 @@
+universe = vanilla
+executable = jobwrapper.sh
+request_cpus = 1
+transfer_input_files = data/input-data.txt
+transfer_output_files = outfilename
+transfer_output_remaps = "outfilename = output/$(Cluster).$(Process).outfilename"
+args = input-data.txt outfilename
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_executable = true
+output = logs/$(Cluster).$(Process).out
+error= logs/$(Cluster).$(Process).error
+log = logs/$(Cluster).$(Process).log
+Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) )
+queue 50

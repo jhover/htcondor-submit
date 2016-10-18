@@ -1,0 +1,12 @@
+universe = vanilla
+executable = wninfo.sh
+arguments=  arg1 arg2
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_executable = true
+output = output/wninfo.$(Cluster).$(Process).out
+error= output/wninfo.$(Cluster).$(Process).error
+log = output/wninfo.$(Cluster).$(Process).log
+Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) )
+
+queue 50
