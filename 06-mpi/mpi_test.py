@@ -15,7 +15,7 @@ print os.environ.get("_CONDOR_SCRATCH_DIR", None)
 cwd = os.getcwd()
 os.makedirs("x/y/z")
 os.chdir("x/y/z")
-print glob.glob("/home/ahe/*")
+print glob.glob("~/*")
 print glob.glob("*")
 os.chdir(cwd)
 
