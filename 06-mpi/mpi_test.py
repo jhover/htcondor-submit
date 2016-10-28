@@ -45,7 +45,7 @@ if rank == 0:
     time.sleep(300)
 else:
     print "Node %s is slave..." % hostname 
-    time.sleep(300)
+    time.sleep(10)
     for rt,dirs,files in os.walk(cwd):
         for f in dirs + files:
             print path.join(rt, f)    
