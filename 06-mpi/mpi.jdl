@@ -10,6 +10,6 @@ output = logs/$(Node).$(Cluster).$(Process).out
 error  = logs/$(Node).$(Cluster).$(Process).error
 log    = logs/$(Cluster).$(Process).log
 Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) )
-machine_count = 3
-request_cpus = 2
+machine_count = 2
+request_cpus = 14
 queue

@@ -33,7 +33,7 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-print "Hello from node %d ( %d ): %s" % (rank, size, str(glob.glob("*")))
+#print "Hello from node %d ( %d ): %s" % (rank, size, str(glob.glob("*")))
 #os.makedirs("{}".format(size))
 print "Hello from node %d ( %d ): %s" % (rank, size, str(glob.glob("*")))
 
