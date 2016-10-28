@@ -38,14 +38,14 @@ size = comm.Get_size()
 print "Hello from node %d ( %d ): %s" % (rank, size, str(glob.glob("*")))
 
 if rank == 0:
-    time.sleep(300)
     print "Node %s is controller..." % hostname 
     for rt,dirs,files in os.walk(cwd):
         for f in dirs + files:
             print path.join(rt, f)
-else:
     time.sleep(300)
+else:
     print "Node %s is slave..." % hostname 
+    time.sleep(300)
     for rt,dirs,files in os.walk(cwd):
         for f in dirs + files:
             print path.join(rt, f)    
