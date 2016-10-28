@@ -1,3 +1,4 @@
+# Sample MPI job
 universe = parallel
 executable = mp1script
 arguments= mpi_test.py
