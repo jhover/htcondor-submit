@@ -10,15 +10,15 @@ import sys
 import time
 
 from os import path
+
+# Add mpich to python path...  
+major, minor, release, st, num = sys.version_info
+sys.path.append('/usr/lib64/python%s.%s/site-packages/mpich' % (major, minor))
 try:
     from mpi4py import MPI
 except ImportError:
     print("mpi4py not installed. Exitting.")
     sys.exit(1)
-
-# Check python version 
-major, minor, release, st, num = sys.version_info
-sys.path.append('/usr/lib64/python%s.%s/site-packages/mpich' % (major, minor))
 
 print os.environ.get("_CONDOR_SCRATCH_DIR", None)
 cwd = os.getcwd()
