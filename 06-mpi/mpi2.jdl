@@ -1,0 +1,15 @@
+# Sample MPI job
+universe = parallel
+executable = mp1script
+arguments= mpi_test2.py
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_executable = true
+transfer_input_files = mp1script, mpi_test.py 
+output = logs/$(Node).$(Cluster).$(Process).out
+error  = logs/$(Node).$(Cluster).$(Process).error
+log    = logs/$(Cluster).$(Process).log
+Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) )
+machine_count = 2
+request_cpus = 14
+queue

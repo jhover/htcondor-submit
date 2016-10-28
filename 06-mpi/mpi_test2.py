@@ -23,18 +23,12 @@ except ImportError:
 print os.environ.get("_CONDOR_SCRATCH_DIR", None)
 cwd = os.getcwd()
 hostname = socket.getfqdn()
-#os.makedirs("x/y/z")
-#os.chdir("x/y/z")
 print glob.glob("~/*")
-#print glob.glob("*")
-#os.chdir(cwd)
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-print "Hello world from node %d ( %d total ): %s" % (rank, size, str(glob.glob("*")))
-
-comm.Barrier()   # wait for everybody to synchronize _here_
+print "Hello from node %d ( %d ): %s" % (rank, size, str(glob.glob("*")))
 
     
