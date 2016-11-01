@@ -31,7 +31,7 @@ CONDOR_SSH=$CONDOR_SSH/condor_ssh
 SSHD_SH=`condor_config_val libexec`
 SSHD_SH=$SSHD_SH/sshd.sh
 
-echo "Parameters: 
+echo "Parameters: "
 echo "_CONDOR_PROCNO=$_CONDOR_PROCNO"
 echo "_CONDOR_NPROCS=$_CONDOR_NPROCS"
 echo "CONDOR_SSH=$CONDOR_SSH"
