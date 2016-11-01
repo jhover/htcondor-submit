@@ -1,11 +1,11 @@
 # Sample MPI job
 universe = parallel
-executable = mp1script
+executable = condor_mpiwrapper.sh
 arguments= mpi_test.py
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_executable = true
-transfer_input_files = mp1script, mpi_test.py 
+transfer_input_files = mpi_test.py 
 output = logs/$(Node).$(Cluster).$(Process).out
 error  = logs/$(Node).$(Cluster).$(Process).error
 log    = logs/$(Cluster).$(Process).log

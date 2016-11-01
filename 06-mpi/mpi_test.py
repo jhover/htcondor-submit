@@ -20,14 +20,10 @@ except ImportError:
     print("mpi4py not installed. Exitting.")
     sys.exit(1)
 
-print os.environ.get("_CONDOR_SCRATCH_DIR", None)
+print "__CONDOR_SCRATCH_DIR=%s" % os.environ.get("_CONDOR_SCRATCH_DIR", None)
 cwd = os.getcwd()
 hostname = socket.getfqdn()
-#os.makedirs("x/y/z")
-#os.chdir("x/y/z")
 print glob.glob("~/*")
-#print glob.glob("*")
-#os.chdir(cwd)
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
