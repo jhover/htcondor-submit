@@ -92,6 +92,8 @@ echo "mpirun done. Performing ssh_cleanup..."
 sshd_cleanup
 rm -f machines
 
+echo "Waiting awhile for debugging activity..."
+sleep 90
 echo "Job completed. Exitting"
 
 exit $?
