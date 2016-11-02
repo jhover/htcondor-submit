@@ -32,8 +32,9 @@ log.debug("Logging initialized.")
 
 try:
     from mpi4py import MPI
+    log.debug("mpi4py imported successfully.")
 except ImportError:
-    print("mpi4py not installed. Exitting.")
+    log.error("mpi4py not installed. Exitting.")
     sys.exit(1)
 
 log.debug("__CONDOR_SCRATCH_DIR=%s" % os.environ.get("_CONDOR_SCRATCH_DIR", None))
