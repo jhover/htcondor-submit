@@ -84,8 +84,8 @@ cat machines
 
 ## run the actual mpijob
 
-echo "Running mpirun -verbose -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@"
-mpirun -verbose -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@ 2>&1
+echo "Running mpirun -verbose --prefix /usr/lib64/mpich  -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@"
+mpirun -verbose --prefix /usr/lib64/mpich -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@ 2>&1
 
 echo "mpirun done. Performing ssh_cleanup..."
 
