@@ -17,7 +17,8 @@ major, minor, release, st, num = sys.version_info
 sys.path.append('/usr/lib64/python%s.%s/site-packages/mpich' % (major, minor))
 
 # Defaults
-default_logfile = "mpi_test.log"
+u = os.environ('USER')
+default_logfile = "/tmp/%s-mpi_test.log" % u
 
 # Logging
 FORMATSTR = "[%(levelname)s] %(asctime)s %(module)s.%(funcName)s(): %(message)s"
@@ -49,3 +50,5 @@ size = comm.Get_size()
 log.debug("Hello world from node %d ( %d total ): %s" % (rank, size, str(glob.glob("*"))))
 
 comm.Barrier()   # wait for everybody to synchronize _here_
+
+time.sleep(90)
