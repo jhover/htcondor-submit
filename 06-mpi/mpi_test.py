@@ -17,7 +17,7 @@ major, minor, release, st, num = sys.version_info
 sys.path.append('/usr/lib64/python%s.%s/site-packages/mpich' % (major, minor))
 
 # Defaults
-u = os.environ('USER')
+u = os.environ['USER']
 default_logfile = "/tmp/%s-mpi_test.log" % u
 
 # Logging
