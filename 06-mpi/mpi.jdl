@@ -6,8 +6,8 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_executable = true
 transfer_input_files = mpi_test.py 
-transfer_output_files = mpi_test.log
-transfer_output_remaps = "mpi_test.log = logs/$(Node).$(Cluster).$(Process).mpi_test.log"
+#transfer_output_files = mpi_test.log
+#transfer_output_remaps = "mpi_test.log = logs/$(Node).$(Cluster).$(Process).mpi_test.log"
 output = logs/$(Node).$(Cluster).$(Process).out
 error  = logs/$(Node).$(Cluster).$(Process).error
 log    = logs/$(Cluster).$(Process).log
