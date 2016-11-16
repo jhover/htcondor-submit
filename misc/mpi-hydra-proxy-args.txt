@@ -1,0 +1,64 @@
+--version 3.0.4 
+--iface-ip-env-name MPICH_INTERFACE_HOSTNAME 
+--hostname host-172-12-2-255 
+--global-core-map 0,1,2 
+--pmi-id-map 0,1 
+--global-process-count 2 
+--auto-cleanup 1 
+--pmi-kvsname kvs_144044_0 
+--pmi-process-mapping (vector,(0,2,1)) 
+--ckpoint-num -1 --global-inherited-env 45 
+   '_CONDOR_JOB_PIDS=' '
+   HOSTNAME=host-172-12-2-254' 
+   '_CONDOR_ANCESTOR_89256=143955:1478623281:649088471' 
+   '_CONDOR_ANCESTOR_143955=143965:1478623282:3558027354' 
+   '_CONDOR_ANCESTOR_89219=89256:1477320731:2023831104' 
+   'HISTSIZE=1000' 
+   'TMPDIR=/home/condor/execute/dir_143955' 
+   '_CONDOR_SCRATCH_DIR=/home/condor/execute/dir_143955' 
+   'QTDIR=/usr/lib64/qt-3.3' 
+   'QTINC=/usr/lib64/qt-3.3/include' 
+   'QT_GRAPHICSSYSTEM_CHECKED=1' 
+   '_CHIRP_DELAYED_UPDATE_PREFIX=Chirp*' 
+   'USER=slot1' 
+   'TEMP=/home/condor/execute/dir_143955' 
+   'BATCH_SYSTEM=HTCondor' 
+   '_CONDOR_REMOTE_SPOOL_DIR=/var/lib/condor/spool/178/0/cluster178.proc0.subproc0' 
+   '_CONDOR_CHIRP_CONFIG=/home/condor/execute/dir_143955/.chirp.config' 
+   'PATH=/usr/lib64/mpich/bin:.:/usr/lib64/qt-3.3/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/.local/bin:/bin' 
+   'MAIL=/var/spool/mail/slot1' 
+   'PWD=/home/condor/execute/dir_143955' 
+   '_CONDOR_WRAPPER_ERROR_FILE=/home/condor/execute/dir_143955/.job_wrapper_failure' 
+   'LANG=en_US.UTF-8' 
+   'MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles' 
+   'LOADEDMODULES=' 
+   'QT_GRAPHICSSYSTEM=native' 
+   '_CONDOR_SLOT=slot1_1' 
+   'P4_RSHCOMMAND=/usr/libexec/condor/condor_ssh' 
+   'HISTCONTROL=ignoredups' 
+   'SHLVL=1' 
+   'HOME=/home/slot1' 
+   '_CONDOR_MACHINE_AD=/home/condor/execute/dir_143955/.machine.ad' 
+   'TMP=/home/condor/execute/dir_143955' 
+   'LOGNAME=slot1' 
+   'CVS_RSH=ssh' 
+   'QTLIB=/usr/lib64/qt-3.3/lib' 
+   'MODULESHOME=/usr/share/Modules' 
+   'CONDOR_CONTACT_FILE=/home/condor/execute/dir_143955/contact' 
+   'OMP_NUM_THREADS=14' 
+   'LESSOPEN=||/usr/bin/lesspipe.sh %s' 
+   '_CONDOR_JOB_AD=/home/condor/execute/dir_143955/.job.ad' 
+   'HYDRA_LAUNCHER_EXEC=/usr/libexec/condor/condor_ssh' 
+   '_CONDOR_NPROCS=2' 
+   '_CONDOR_JOB_IWD=/home/condor/execute/dir_143955' 
+   '_CONDOR_PROCNO=0' 
+   '_=/usr/lib64/mpich/bin/mpirun'
+--global-user-env 0 
+--global-system-env 1 'GFORTRAN_UNBUFFERED_PRECONNECTED=y' 
+--proxy-core-count 1 
+--exec 
+--exec-appnum 0 
+--exec-proc-count 1 
+--exec-local-env 0 
+--exec-wdir /home/condor/execute/dir_143955 
+--exec-args 1 mpi_test.py

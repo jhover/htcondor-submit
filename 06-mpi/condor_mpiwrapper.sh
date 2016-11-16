@@ -93,7 +93,7 @@ sshd_cleanup
 rm -f machines
 
 echo "Waiting awhile for debugging activity..."
-sleep 90
+sleep 1800
 echo "Job completed. Exitting"
 
 exit $?

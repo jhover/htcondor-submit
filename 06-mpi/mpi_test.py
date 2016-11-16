@@ -51,4 +51,4 @@ log.debug("Hello world from node %d ( %d total ): %s" % (rank, size, str(glob.gl
 
 comm.Barrier()   # wait for everybody to synchronize _here_
 
-time.sleep(90)
+time.sleep(1800)
