@@ -29,7 +29,12 @@
 
 # Uncomment the following line to have the shell print out
 # each command to stderr before running it, useful for
-# debugging
+# debugging 
+
+LOG=/tmp/condor_ssh.$$.log
+
+echo "Command: $@" >> $LOG
+
 set -x
 
 if [ $# -lt 2 ]
@@ -42,28 +47,28 @@ doneParsing=false
 while [ $doneParsing = "false" ]
 do
 
-doneParsing=true
+	doneParsing=true
 
-if [ "$1" = "-x" ]
-then
-	shift
-	hasx="-x"
-	doneParsing="false"
-fi
+	if [ "$1" = "-x" ]
+	then
+		shift
+		hasx="-x"
+		doneParsing="false"
+	fi
 
-if [ "$1" = "-l" ]
-then
-	shift
-	shift
-	doneParsing="false"
-fi
+	if [ "$1" = "-l" ]
+	then
+		shift
+		shift
+		doneParsing="false"
+	fi
 
-if [ "$1" = "-n" ]
-then
-	shift
-	hasn="-n"
-	doneParsing="false"
-fi
+	if [ "$1" = "-n" ]
+	then
+		shift
+		hasn="-n"
+		doneParsing="false"
+	fi
 done
 
 host=$1
@@ -75,28 +80,28 @@ doneParsing=false
 while [ $doneParsing = "false" ]
 do
 
-doneParsing=true
+	doneParsing=true
 
-if [ "$1" = "-x" ]
-then
-	shift
-	hasx="-x"
-	doneParsing="false"
-fi
+	if [ "$1" = "-x" ]
+	then
+		shift
+		hasx="-x"
+		doneParsing="false"
+	fi
 
-if [ "$1" = "-l" ]
-then
-	shift
-	shift
-	doneParsing="false"
-fi
+	if [ "$1" = "-l" ]
+	then
+		shift
+		shift
+		doneParsing="false"
+	fi
 
-if [ "$1" = "-n" ]
-then
-	shift
-	hasn="-n"
-	doneParsing="false"
-fi
+	if [ "$1" = "-n" ]
+	then
+		shift
+		hasn="-n"
+		doneParsing="false"
+	fi
 done
 
 contact=$_CONDOR_SCRATCH_DIR/contact
@@ -104,6 +109,7 @@ contact=$_CONDOR_SCRATCH_DIR/contact
 if [ ! -f $contact ]
 then
 	echo "error: contact file $contact can't be found"
+	echo "error: contact file $contact can't be found" >> $LOG
 	exit 1
 fi
 
@@ -114,6 +120,7 @@ line=`grep "^[0-9]* $host " $contact`
 if [ $? -ne 0 ]
 then
 	echo Host $host is not in contact file $contact
+	echo Host $host is not in contact file $contact >> $LOG 
 	exit 1
 fi
 
@@ -135,7 +142,8 @@ shift
 p=`/bin/pwd`
 prog=${prog##$p/}
 
-# with cd 
+# with cd
+echo /usr/bin/ssh -q $hasn -oStrictHostKeyChecking=no -oUserKnownHostsFile=.ssh_host_rsa_key.$cluster -i $key -l $username -p $port $host cd "$dir" \; PATH=$PATH \; $prog "$@" >> $LOG
 /usr/bin/ssh -q $hasn -oStrictHostKeyChecking=no -oUserKnownHostsFile=.ssh_host_rsa_key.$cluster -i $key -l $username -p $port $host cd "$dir" \; PATH=$PATH \; $prog "$@"
 
 # this one without
