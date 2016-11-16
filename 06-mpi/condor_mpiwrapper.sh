@@ -42,6 +42,8 @@ echo ". $SSHD_SH $_CONDOR_PROCNO $_CONDOR_NPROCS"
 
 . $SSHD_SH $_CONDOR_PROCNO $_CONDOR_NPROCS 
 
+env | sort > wrapper-environment
+
 # If not the head node, just sleep forever, to let the
 # sshds run
 if [ $_CONDOR_PROCNO -ne 0 ]
@@ -75,6 +77,9 @@ export CONDOR_CONTACT_FILE
 echo "Contents of contact file $CONDOR_CONTACT_FILE"
 cat $CONDOR_CONTACT_FILE
 
+echo cp $CONDOR_CONTACT_FILE $HOSTNAME.condor_contact_copy
+cp $CONDOR_CONTACT_FILE $HOSTNAME.condor_contact_copy
+
 # The second field in the contact file is the machine name
 # that condor_ssh knows how to use
 sort -n -k 1 < $CONDOR_CONTACT_FILE | awk '{print $2}' > machines
@@ -85,15 +90,13 @@ cat machines
 ## run the actual mpijob
 
 echo "Running mpirun -verbose --prefix /usr/lib64/mpich  -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@"
-mpirun -verbose --prefix /usr/lib64/mpich -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@ 2>&1
+mpirun -verbose -genvnone --prefix /usr/lib64/mpich -launcher ssh -np $_CONDOR_NPROCS -machinefile machines $EXECUTABLE $@ 2>&1
+
+echo "Waiting awhile after mpirun for debugging activity..."
+sleep 1800
 
 echo "mpirun done. Performing ssh_cleanup..."
-
 sshd_cleanup
-rm -f machines
-
-echo "Waiting awhile for debugging activity..."
-sleep 1800
 echo "Job completed. Exitting"
 
 exit $?
