@@ -12,6 +12,6 @@ Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "L
 accounting_group = group_sdcc.main
 # for OSG glideins
 +ProjectName = "OSG.sPHENIX" 
-Requirements = HAS_SINGULARITY == TRUE
+# Requirements = HAS_SINGULARITY == TRUE
 
 queue 5
