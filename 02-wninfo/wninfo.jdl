@@ -8,5 +8,10 @@ output = output/wninfo.$(Cluster).$(Process).out
 error= output/wninfo.$(Cluster).$(Process).error
 log = output/wninfo.$(Cluster).$(Process).log
 Requirements = ( ( Arch == "INTEL" || Arch == "X86_64" ) && ( TARGET.OpSys == "LINUX" ) )
+# for shared pool at BNL
+accounting_group = group_sdcc.main
+# for OSG glideins
++ProjectName = "OSG.sPHENIX" 
+Requirements = HAS_SINGULARITY == TRUE
 
-queue 50
+queue 5
